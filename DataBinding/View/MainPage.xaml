@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	xmlns:local="clr-namespace:DataBinding" 
+	x:Class="DataBinding.MainPage">
+	<ContentPage.Content>
+		<StackLayout Padding="30">
+			<Label Text="Contacts" FontSize="20"/>
+			<ListView x:Name="ContactList" 
+				ItemsSource="{Binding .}" 
+				ItemTapped="OnItemTapped"
+				IsGroupingEnabled="true"
+				GroupHeaderTemplate="{Binding Key}"
+				HasUnevenRows="false">
+				<ListView.GroupHeaderTemplate>
+					<DataTemplate>
+						<ViewCell Height="30">
+							<StackLayout VerticalOptions="FillAndExpand"
+									Padding="10"
+									BackgroundColor="Blue">
+									<Label Text="{Binding Key}"
+										TextColor="White"
+										VerticalOptions="Center"/>
+							</StackLayout>
+						</ViewCell>
+					</DataTemplate>
+				</ListView.GroupHeaderTemplate>
+				<ListView.ItemTemplate>
+					<DataTemplate>
+						<ViewCell>
+							<ViewCell.View>
+								<StackLayout Padding="10">
+									<StackLayout Orientation="Horizontal">
+										<Label
+											Text="{Binding FirstName}"
+											FontSize="10"
+											FontAttributes="Bold"
+											TextColor="Blue"/>
+										<Label
+											Text="{Binding LastName}"
+											FontSize="10"
+											FontAttributes="Bold"
+											TextColor="Blue"/>
+									</StackLayout>
+									<Label Text="{Binding Email}" FontSize="10"/>
+								</StackLayout>
+							</ViewCell.View>
+						</ViewCell>
+					</DataTemplate>
+				</ListView.ItemTemplate>
+			</ListView>
+		</StackLayout>
+	</ContentPage.Content>
+</ContentPage>
