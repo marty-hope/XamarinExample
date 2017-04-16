@@ -30,7 +30,8 @@ namespace DataBinding
 				{
 					FirstName = InitCap(firstName),
 					LastName = InitCap(LastNames[random.Next(LastNames.Count -1)]),
-					Email = firstName + "@gmail.com"
+					Email = firstName + "@gmail.com",
+					Favorite = random.Next()%2 == 0
 				};
 				contacts.Add(contact);
 			}

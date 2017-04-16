@@ -8,28 +8,15 @@ namespace DataBinding
 {
 	public partial class MainPage : ContentPage
 	{
-		public ObservableCollection<Grouping<string, Contact>> ContactGroup
-		{
-			get;
-			set;
-		}
+		MainPageViewModel _vm;
+		
 		public MainPage()
 		{
-			Init();
-			BindingContext = ContactGroup;
+			_vm = new MainPageViewModel();
+			BindingContext = _vm;
 			InitializeComponent();
 		}
 
-		private void Init()
-		{
-			var listOfContacts = ContactGenerator.CreateContacts();
-			var sorted = from c in listOfContacts
-				     orderby c.FirstName
-		                      group c by c.FirstName[0].ToString()
-		                      into theGroup
-				     select new Grouping<string, Contact>(theGroup.Key, theGroup);
-			ContactGroup = new ObservableCollection<Grouping<string, Contact>>(sorted);
-		}
 
 		void OnItemTapped(object sender, Xamarin.Forms.ItemTappedEventArgs e)
 		{

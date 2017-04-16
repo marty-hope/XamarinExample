@@ -10,14 +10,21 @@
   </PropertyGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)App.xaml" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)DataBindingPage.xaml" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\MainPage.xaml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)DataBindingPage.xaml.cs">
-      <DependentUpon>DataBindingPage.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Model\Contact.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Service\ContactGenerator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)View\MainPage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\Grouping.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MainPageViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Model\" />
+    <Folder Include="$(MSBuildThisFileDirectory)View\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Service\" />
   </ItemGroup>
 </Project>

@@ -8,7 +8,7 @@ namespace DataBinding
 		{
 			InitializeComponent();
 
-			MainPage = new DataBindingPage();
+			MainPage = new MainPage();
 		}
 
 		protected override void OnStart()

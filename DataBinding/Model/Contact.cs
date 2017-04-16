@@ -20,5 +20,11 @@ namespace DataBinding
 			get;
 			set;
 		}
+
+		public bool Favorite
+		{
+			get;
+			set;
+		}
 	}
 }

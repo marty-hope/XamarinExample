@@ -7,7 +7,7 @@
 		<StackLayout Padding="30">
 			<Label Text="Contacts" FontSize="20"/>
 			<ListView x:Name="ContactList" 
-				ItemsSource="{Binding .}" 
+				ItemsSource="{Binding ContactGroup}" 
 				ItemTapped="OnItemTapped"
 				IsGroupingEnabled="true"
 				GroupHeaderTemplate="{Binding Key}"
@@ -35,12 +35,32 @@
 											Text="{Binding FirstName}"
 											FontSize="10"
 											FontAttributes="Bold"
-											TextColor="Blue"/>
+											TextColor="Blue">
+											<Label.Triggers>
+												<DataTrigger 
+													TargetType="Label" 
+													Binding="{Binding Favorite}"
+													Value="True">
+													<Setter Property="TextColor"
+														Value="Red"/>
+												</DataTrigger>
+											</Label.Triggers>
+										</Label>
 										<Label
 											Text="{Binding LastName}"
 											FontSize="10"
 											FontAttributes="Bold"
-											TextColor="Blue"/>
+											TextColor="Blue">
+											<Label.Triggers>
+												<DataTrigger 
+													TargetType="Label" 
+													Binding="{Binding Favorite}"
+													Value="True">
+													<Setter Property="TextColor"
+														Value="Red"/>
+												</DataTrigger>
+											</Label.Triggers>
+										</Label>
 									</StackLayout>
 									<Label Text="{Binding Email}" FontSize="10"/>
 								</StackLayout>
